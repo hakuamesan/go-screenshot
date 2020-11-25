@@ -1,3 +1,11 @@
+/*
+Simple app to take a screenshot of the whole screen.
+
+Author: Hakuame
+Date: 25 Nov 2020
+
+*/
+
 package main
 
 import (
@@ -8,6 +16,12 @@ import (
 
 	"github.com/kbinani/screenshot"
 )
+
+/*
+TODO
+- Add custom dir to save
+- Add custom filename
+*/
 
 func main() {
 	bounds := screenshot.GetDisplayBounds(0)
@@ -24,5 +38,5 @@ func main() {
 	defer file.Close()
 	png.Encode(file, img)
 
-	fmt.Printf("screenshot: %v \"%s\"\n", bounds, fileName)
+	fmt.Printf("Screenshot saved as: %s\n", fileName)
 }
