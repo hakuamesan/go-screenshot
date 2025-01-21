@@ -30,10 +30,10 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+    loc, _ := time.LoadLocation("Local") // Use system's local time zone
+    t := time.Now().In(loc)
 
-	t := time.Now()
-
-	fileName := fmt.Sprintf("/home/samurai/Pictures/ss_%s.png", t.Format("2006-01-01_15:05:05"))
+	fileName := fmt.Sprintf("/home/samurai/Pictures/ss_%s.png", t.Format("2006-01-02_15:05:05"))
 	file, _ := os.Create(fileName)
 	defer file.Close()
 	png.Encode(file, img)
